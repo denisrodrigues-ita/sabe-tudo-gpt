@@ -9,10 +9,13 @@ const config: Config = {
   theme: {
     extend: {
       colors: {
-        "primary": "#f6eb9a",
-        "secondary": "#5853bc",
-        "tertiary": "#362391",
-        "quaternary": "#1c0c59",
+        "bright-sun": "#FFCF48", // buttons
+        "sandy-brown": "#F2A65A", // buttons
+        "wisteria": "#8A6EAF", // letters
+        "daisy-bush": "#3F2B96", // background
+      },
+      container: {
+        center: true,
       },
     },
   },

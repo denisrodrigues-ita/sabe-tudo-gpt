@@ -1,3 +1,24 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+@layer base {
+  h1 {
+    @apply text-wisteria text-6xl mt-8 font-bold;
+  }
+  main {
+    @apply h-screen;
+  }
+  p {
+    @apply text-wisteria text-2xl text-center font-medium;
+  }
+  form {
+    @apply my-8 flex items-center justify-center;
+  }
+}
+
+@layer components {
+  .textarea {
+    @apply w-11/12 lg:w-9/12 bg-slate-300 placeholder-wisteria/70 text-xl rounded-md resize-none text-wisteria font-medium ps-4;
+  }
+}
