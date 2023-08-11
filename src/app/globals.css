@@ -12,13 +12,25 @@
   p {
     @apply text-wisteria text-2xl text-center font-medium;
   }
+  main {
+    @apply mx-4 lg:w-3/4 xl:w-2/3 mx-auto px-4;
+  }
   form {
-    @apply my-8 flex items-center justify-center;
+    @apply my-8 flex flex-col items-center justify-center gap-4 mb-20;
   }
 }
 
 @layer components {
   .textarea {
-    @apply w-11/12 lg:w-9/12 bg-slate-300 placeholder-wisteria/70 text-xl rounded-md resize-none text-wisteria font-medium ps-4;
+    @apply w-full bg-slate-300 placeholder-wisteria text-2xl rounded-md resize-none text-wisteria font-medium px-4;
+  }
+  .btn {
+    @apply bg-bright-sun text-wisteria text-2xl font-medium rounded-md px-4 py-2 shadow-md shadow-wisteria hover:scale-105  hover:bg-bright-sun/90;
+  }
+  .respdiv {
+    @apply bg-slate-300 w-full rounded-md;
+  }
+  .resp {
+    @apply inline break-words whitespace-pre-line;
   }
 }
