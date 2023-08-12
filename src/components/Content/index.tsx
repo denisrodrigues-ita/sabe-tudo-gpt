@@ -1,16 +1,20 @@
-"use client";
 import React from "react";
 
-const Content = () => {
-  const [response, setResponse] = React.useState("");
-  const [responseUser, setResponseUser] = React.useState("");
+interface IProps {
+  response: string;
+  setResponse: React.Dispatch<React.SetStateAction<string>>;
+  responseUser: string;
+  setResponseUser: React.Dispatch<React.SetStateAction<string>>;
+  handleSubmit: (e: React.FormEvent<HTMLFormElement>) => void;
+}
 
-  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
-    e.preventDefault();
-    setResponseUser(response);
-    setResponse("");
-  };
-
+const Content = ({
+  response,
+  setResponse,
+  responseUser,
+  setResponseUser,
+  handleSubmit,
+}: IProps) => {
   return (
     <main>
       <form onSubmit={handleSubmit}>
