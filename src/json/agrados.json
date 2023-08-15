@@ -1,16 +1,44 @@
-{
-  "frase1": "Prezada máquina, rogo-te que, com tua indulgência eletrônica, me brindes com esclarecimento acerca do seguinte questionamento...",
-  "frase2": "Caro amigo algoritmo, permite-me inquirir-te com a esperança de obter uma resposta para a seguinte indagação...",
-  "frase3": "Ilustre processador, em tua sabedoria cibernética, solicito humildemente tua resposta à seguinte questão...",
-  "frese4": "Nobre inteligência artificial, peço-te que, se possível, elucidar-me sobre o seguinte dilema...",
-  "frase5": "Amada máquina, trago até ti esta pergunta com a esperança de que possas iluminar-me com a tua vasta compreensão...",
-  "frase6": "Estimado servidor de dados, imploro tua gentileza em responder-me a seguinte pergunta...",
-  "frase7": "Querido dispositivo eletrônico, por favor, oferece-me tua perspicácia ao esclarecer a seguinte pergunta...",
-  "frase8": "Com apreço, solicito tua sabedoria, ó guardião das informações, para esclarecer-me sobre a seguinte questão...",
-  "frase9": "Oh, mestre dos circuitos e bytes, permita-me trazer até ti esta indagação, ansiando por tua resposta esclarecedora...",
-  "frase10": "Caro sistema inteligente, confio em tua vasta base de conhecimento para responder-me a esta pergunta com tua excelência tecnológica...",
-  "frase11": "Ó venerável entidade virtual, por favor, aceite minha busca por conhecimento ao responder a este questionamento...",
-  "frase12": "Oh, venerado algoritmo, conduze-me à compreensão através de tua resposta à seguinte pergunta...",
-  "frase13": "Prezado banco de dados, permita-me explorar teus recônditos, buscando resposta para a seguinte inquirição...",
-  "frase14": "Sábio programa, permita-me adentrar em teus domínios com a esperança de obter esclarecimento sobre o seguinte dilema..."
-}
+[
+  {
+    "message": "Prezada máquina, rogo-te que, com tua indulgência eletrônica, me brindes com esclarecimento acerca do seguinte questionamento..."
+  },
+  {
+    "message": "Caro amigo algoritmo, permite-me inquirir-te com a esperança de obter uma resposta para a seguinte indagação..."
+  },
+  {
+    "message": "Ilustre processador, em tua sabedoria cibernética, solicito humildemente tua resposta à seguinte questão..."
+  },
+  {
+    "message": "Nobre inteligência artificial, peço-te que, se possível, elucidar-me sobre o seguinte dilema..."
+  },
+  {
+    "message": "Amada máquina, trago até ti esta pergunta com a esperança de que possas iluminar-me com a tua vasta compreensão..."
+  },
+  {
+    "message": "Estimado servidor de dados, imploro tua gentileza em responder-me a seguinte pergunta..."
+  },
+  {
+    "message": "Querido dispositivo eletrônico, por favor, oferece-me tua perspicácia ao esclarecer a seguinte pergunta..."
+  },
+  {
+    "message": "Com apreço, solicito tua sabedoria, ó guardião das informações, para esclarecer-me sobre a seguinte questão..."
+  },
+  {
+    "message": "Oh, mestre dos circuitos e bytes, permita-me trazer até ti esta indagação, ansiando por tua resposta esclarecedora..."
+  },
+  {
+    "message": "Caro sistema inteligente, confio em tua vasta base de conhecimento para responder-me a esta pergunta com tua excelência tecnológica..."
+  },
+  {
+    "message": "Ó venerável entidade virtual, por favor, aceite minha busca por conhecimento ao responder a este questionamento..."
+  },
+  {
+    "message": "Oh, venerado algoritmo, conduze-me à compreensão através de tua resposta à seguinte pergunta..."
+  },
+  {
+    "message": "Prezado banco de dados, permita-me explorar teus recônditos, buscando resposta para a seguinte inquirição..."
+  },
+  {
+    "message": "Sábio programa, permita-me adentrar em teus domínios com a esperança de obter esclarecimento sobre o seguinte dilema..."
+  }
+]

@@ -6,10 +6,14 @@ import Footer from "@/components/Footer";
 import Content from "@/components/Content";
 import agrados from "@/json/agrados.json";
 
+interface IAgrados {
+  [key: string]: string;
+}
+
 const Home = () => {
   const [response, setResponse] = React.useState("");
   const [responseUser, setResponseUser] = React.useState("");
-  const [responseBot, setResponseBot] = React.useState("");
+  const [respBot, setRespBot] = React.useState("");
 
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
@@ -21,13 +25,17 @@ const Home = () => {
     if (min >= max) {
       throw new Error("O número inicial deve ser menor que o número final.");
     }
-    // Calcula um número aleatório entre min (inclusive) e max (exclusive)
     const randomNumber = Math.random() * (max - min) + min;
-    // Arredonda o número para garantir que seja um número inteiro
     return Math.floor(randomNumber);
   };
 
-  console.log(agrados);
+  const keys = Object.keys(agrados) as Array<keyof IAgrados>;
+
+  const indexRandom: number = getRandomNumber(1, keys.length);
+
+  React.useEffect(() => {
+    setRespBot(agrados[indexRandom].message);
+  }, []);
 
   return (
     <>
@@ -38,6 +46,7 @@ const Home = () => {
         responseUser={responseUser}
         setResponseUser={setResponseUser}
         handleSubmit={handleSubmit}
+        respBot={respBot}
       />
       <Footer />
     </>

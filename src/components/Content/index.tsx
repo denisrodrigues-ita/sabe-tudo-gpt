@@ -6,6 +6,7 @@ interface IProps {
   responseUser: string;
   setResponseUser: React.Dispatch<React.SetStateAction<string>>;
   handleSubmit: (e: React.FormEvent<HTMLFormElement>) => void;
+  respBot: string;
 }
 
 const Content = ({
@@ -14,7 +15,9 @@ const Content = ({
   responseUser,
   setResponseUser,
   handleSubmit,
+  respBot,
 }: IProps) => {
+
   return (
     <main>
       <form onSubmit={handleSubmit}>
@@ -31,7 +34,7 @@ const Content = ({
         </button>
       </form>
       <div className="respdiv">
-        <p className="resp">{responseUser}</p>
+        <p className="resp">{respBot.slice(0, response.length)}</p>
       </div>
     </main>
   );
