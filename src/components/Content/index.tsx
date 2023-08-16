@@ -3,20 +3,26 @@ import React from "react";
 interface IProps {
   response: string;
   setResponse: React.Dispatch<React.SetStateAction<string>>;
-  responseUser: string;
-  setResponseUser: React.Dispatch<React.SetStateAction<string>>;
+  responseComplete: string;
+  setResponseComplete: React.Dispatch<React.SetStateAction<string>>;
   handleSubmit: (e: React.FormEvent<HTMLFormElement>) => void;
-  respBot: string;
+  respJSON: string;
+  isAsking: boolean;
 }
 
 const Content = ({
   response,
   setResponse,
-  responseUser,
-  setResponseUser,
+  responseComplete,
+  setResponseComplete,
   handleSubmit,
-  respBot,
+  respJSON,
+  isAsking,
 }: IProps) => {
+
+  const handleValue = () => {
+    return respJSON.slice(0, response.length);
+  }
 
   return (
     <main>
@@ -24,17 +30,22 @@ const Content = ({
         <textarea
           className="textarea"
           rows={5}
-          maxLength={255}
+          maxLength={100}
           placeholder="Digite aqui sua pergunta"
-          value={response}
+          value={handleValue()}
           onChange={(e) => setResponse(e.target.value)}
         />
-        <button className="btn" type="submit">
-          Enviar pergunta!
-        </button>
+        <div className="flex flex-row gap-8">
+          <button className="btn bg-sandy-brown" type="button">
+            Nova pergunta!
+          </button>
+          <button className="btn" type="submit">
+            Enviar pergunta!
+          </button>
+        </div>
       </form>
       <div className="respdiv">
-        <p className="resp">{respBot.slice(0, response.length)}</p>
+        <p className="resp">{responseComplete}</p>
       </div>
     </main>
   );
