@@ -4,6 +4,7 @@ import React from "react";
 import Header from "@/components/Header";
 import Content from "@/components/Content";
 import agradosJSON from "@/json/agrados.json";
+import getRandomNumber from "@/utils/getRandomNumber";
 
 const Home = () => {
   const [agrados, setAgrados] = React.useState("");
@@ -11,19 +12,19 @@ const Home = () => {
   const [pergunta, setPergunta] = React.useState("");
   const [estaDigitandoResposta, setEstaDigitandoResposta] =
     React.useState(true);
-    const [teste, setTeste] = React.useState("");
+    const [mascara, setMascara] = React.useState("");
 
   React.useEffect(() => {
     setAgrados(agradosJSON[indexRandom].message);
   }, []);
 
-  const getRandomNumber = (min: number, max: number): number => {
-    if (min >= max) {
-      throw new Error("O número inicial deve ser menor que o número final.");
-    }
-    const randomNumber = Math.random() * (max - min) + min;
-    return Math.floor(randomNumber);
-  };
+  // const getRandomNumber = (min: number, max: number): number => {
+  //   if (min >= max) {
+  //     throw new Error("O número inicial deve ser menor que o número final.");
+  //   }
+  //   const randomNumber = Math.random() * (max - min) + min;
+  //   return Math.floor(randomNumber);
+  // };
 
   const keys = Object.keys(agradosJSON);
 
@@ -40,8 +41,10 @@ const Home = () => {
         setPergunta={setPergunta}
         agrados={agrados}
         setEstaDigitandoResposta={setEstaDigitandoResposta}
-        teste={teste}
-        setTeste={setTeste}
+        mascara={mascara}
+        setMascara={setMascara}
+        agradosJSON={agradosJSON}
+        setAgrados={setAgrados}
       />
     </>
   );

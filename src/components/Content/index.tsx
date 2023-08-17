@@ -1,6 +1,7 @@
 import React from "react";
 import TypeWriter from "../TypeWriter";
 import Loading from "../Loading";
+import getRandomNumber from "@/utils/getRandomNumber";
 
 interface IProps {
   resposta: string;
@@ -10,8 +11,10 @@ interface IProps {
   setPergunta: React.Dispatch<React.SetStateAction<string>>;
   agrados: string;
   setEstaDigitandoResposta: React.Dispatch<React.SetStateAction<boolean>>;
-  teste: string;
-  setTeste: React.Dispatch<React.SetStateAction<string>>;
+  mascara: string;
+  setMascara: React.Dispatch<React.SetStateAction<string>>;
+  agradosJSON: Array<{ message: string }>;
+  setAgrados: React.Dispatch<React.SetStateAction<string>>;
 }
 
 const Content = ({
@@ -22,8 +25,10 @@ const Content = ({
   setPergunta,
   agrados,
   setEstaDigitandoResposta,
-  teste,
-  setTeste,
+  mascara,
+  setMascara,
+  agradosJSON,
+  setAgrados,
 }: IProps) => {
   const [enviarPergunta, setEnviarPergunta] = React.useState(false);
   const [isloading, setIsLoading] = React.useState(false);
@@ -31,7 +36,7 @@ const Content = ({
   const handleResposta = (e: React.ChangeEvent<HTMLTextAreaElement>) => {
     if (estaDigitandoResposta) {
       setResposta((prev) => prev + e.target.value.slice(-1));
-      setTeste(agrados.slice(0, resposta.length));
+      setMascara(agrados.slice(0, resposta.length));
       return;
     }
     setPergunta((prev) => prev + e.target.value.slice(-1));
@@ -51,18 +56,19 @@ const Content = ({
     handleLoading();
   };
 
-  const getRandomNumber = (min: number, max: number): number => {
-    if (min >= max) {
-      throw new Error("O número inicial deve ser menor que o número final.");
-    }
-    const randomNumber = Math.random() * (max - min) + min;
-    return Math.floor(randomNumber);
-  };
-
   const handleLoading = () => {
     setTimeout(() => {
       setIsLoading(false);
     }, getRandomNumber(1000, 12000));
+  };
+
+  const handleNewQuestion = () => {
+    setEnviarPergunta(false);
+    setPergunta("");
+    setResposta("");
+    setEstaDigitandoResposta(true);
+    setMascara("");
+    setAgrados(agradosJSON[getRandomNumber(0, agradosJSON.length)].message);
   };
 
   return (
@@ -73,11 +79,11 @@ const Content = ({
           rows={5}
           maxLength={100}
           placeholder="Digite aqui sua pergunta"
-          value={estaDigitandoResposta ? teste : pergunta}
+          value={estaDigitandoResposta ? mascara : pergunta}
           onChange={handleResposta}
         />
         <div className="flex flex-row gap-8">
-          <button className="btn2" type="button">
+          <button onClick={handleNewQuestion} className="btn2" type="button">
             Nova pergunta!
           </button>
           <button className="btn1" type="submit">
@@ -90,7 +96,7 @@ const Content = ({
         <div className="respdiv">
           {resposta && (
             <p className="resp">
-              <TypeWriter text={resposta} time={100} />
+              <TypeWriter text={resposta} time={120} />
             </p>
           )}
         </div>
