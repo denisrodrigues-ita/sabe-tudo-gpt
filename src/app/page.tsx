@@ -3,28 +3,18 @@
 import React from "react";
 import Header from "@/components/Header";
 import Content from "@/components/Content";
-import agrados from "@/json/agrados.json";
+import agradosJSON from "@/json/agrados.json";
 
 const Home = () => {
-  const [response, setResponse] = React.useState("");
-  const [responseComplete, setResponseComplete] = React.useState("");
-  const [respJSON, setRespJSON] = React.useState("");
-  const [isAsking, setIsAsking] = React.useState(true);
+  const [agrados, setAgrados] = React.useState("");
+  const [resposta, setResposta] = React.useState("");
+  const [pergunta, setPergunta] = React.useState("");
+  const [estaDigitandoResposta, setEstaDigitandoResposta] =
+    React.useState(true);
+    const [teste, setTeste] = React.useState("");
 
   React.useEffect(() => {
-    setResponseComplete((prev) => prev + response.slice(-1));
-  }, [response]);
-
-  React.useEffect(() => {
-    document.body.addEventListener("keydown", handleKeyDown);
-
-    return () => {
-      document.body.removeEventListener("keydown", handleKeyDown);
-    };
-  }, [isAsking]);
-
-  React.useEffect(() => {
-    setRespJSON(agrados[indexRandom].message);
+    setAgrados(agradosJSON[indexRandom].message);
   }, []);
 
   const getRandomNumber = (min: number, max: number): number => {
@@ -35,28 +25,23 @@ const Home = () => {
     return Math.floor(randomNumber);
   };
 
-  const keys = Object.keys(agrados);
+  const keys = Object.keys(agradosJSON);
 
   const indexRandom: number = getRandomNumber(1, keys.length);
-
-  const handleKeyDown = (event: KeyboardEvent) => {
-    if (event.ctrlKey) {
-      setIsAsking(false);
-      setResponse;
-      event.stopPropagation();
-    }
-  };
 
   return (
     <>
       <Header />
       <Content
-        response={response}
-        setResponse={setResponse}
-        responseComplete={responseComplete}
-        setResponseComplete={setResponseComplete}
-        respJSON={respJSON}
-        isAsking={isAsking}
+        setResposta={setResposta}
+        resposta={resposta}
+        estaDigitandoResposta={estaDigitandoResposta}
+        pergunta={pergunta}
+        setPergunta={setPergunta}
+        agrados={agrados}
+        setEstaDigitandoResposta={setEstaDigitandoResposta}
+        teste={teste}
+        setTeste={setTeste}
       />
     </>
   );

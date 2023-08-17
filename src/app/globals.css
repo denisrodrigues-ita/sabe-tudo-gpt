@@ -24,8 +24,12 @@
   .textarea {
     @apply w-full bg-slate-300 placeholder-wisteria text-2xl rounded-md resize-none text-wisteria font-medium px-4;
   }
-  .btn {
+  .btn1 {
     @apply bg-bright-sun text-wisteria text-2xl font-medium rounded-md px-4 py-2 shadow-md shadow-wisteria hover:scale-105  hover:bg-bright-sun/90;
+  }
+
+  .btn2 {
+    @apply bg-sandy-brown text-wisteria text-2xl font-medium rounded-md px-4 py-2 shadow-md shadow-wisteria hover:scale-105  hover:bg-sandy-brown/90;
   }
   .respdiv {
     @apply bg-slate-300 w-full rounded-md;
