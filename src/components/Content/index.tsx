@@ -5,7 +5,6 @@ interface IProps {
   setResponse: React.Dispatch<React.SetStateAction<string>>;
   responseComplete: string;
   setResponseComplete: React.Dispatch<React.SetStateAction<string>>;
-  handleSubmit: (e: React.FormEvent<HTMLFormElement>) => void;
   respJSON: string;
   isAsking: boolean;
 }
@@ -15,14 +14,19 @@ const Content = ({
   setResponse,
   responseComplete,
   setResponseComplete,
-  handleSubmit,
   respJSON,
   isAsking,
 }: IProps) => {
 
   const handleValue = () => {
-    return respJSON.slice(0, response.length);
-  }
+    if (isAsking) return respJSON.slice(0, response.length);
+    return respJSON.slice(0, response.length) + response;                 
+  };
+
+  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+    console.log(response);
+  };
 
   return (
     <main>
