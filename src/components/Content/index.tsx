@@ -30,11 +30,13 @@ const Content = ({
   agradosJSON,
   setAgrados,
 }: IProps) => {
+  const noResponse = "Não respondo para pessoas estranhas!";
+  const [pessoaEstranha, setPessoaEstranha] = React.useState(true);
   const [enviarPergunta, setEnviarPergunta] = React.useState(false);
   const [isloading, setIsLoading] = React.useState(false);
 
   const handleResposta = (e: React.ChangeEvent<HTMLTextAreaElement>) => {
-    if (estaDigitandoResposta) {
+    if (estaDigitandoResposta && !pessoaEstranha) {
       setResposta((prev) => prev + e.target.value.slice(-1));
       setMascara(agrados.slice(0, resposta.length));
       return;
@@ -43,9 +45,12 @@ const Content = ({
   };
 
   const handleKeyDow = (e: React.KeyboardEvent<HTMLImageElement>) => {
-    if (e.key === "Control" && estaDigitandoResposta) {
+    if (e.code === "ControlLeft" && estaDigitandoResposta) {
       setPergunta(agrados.slice(0, resposta.length));
       setEstaDigitandoResposta(false);
+    } else if (e.code === "ControlRight") {
+      setPessoaEstranha((prev) => !prev);
+      setEstaDigitandoResposta((prev) => !prev);
     }
   };
 
@@ -66,7 +71,9 @@ const Content = ({
     setEnviarPergunta(false);
     setPergunta("");
     setResposta("");
-    setEstaDigitandoResposta(true);
+    pessoaEstranha
+      ? setEstaDigitandoResposta(false)
+      : setEstaDigitandoResposta(true);
     setMascara("");
     setAgrados(agradosJSON[getRandomNumber(0, agradosJSON.length)].message);
   };
@@ -94,11 +101,12 @@ const Content = ({
       </form>
       {enviarPergunta && !isloading && (
         <div className="respdiv">
-          {resposta && (
-            <p className="resp">
-              <TypeWriter text={resposta} time={120} />
-            </p>
-          )}
+          <p className="resp">
+            <TypeWriter
+              text={pessoaEstranha ? noResponse : resposta}
+              time={120}
+            />
+          </p>
         </div>
       )}
     </main>
