@@ -1,12 +1,12 @@
 .eye {
   width: 20px;
   height: 8px;
-  background-color: rgba(240, 220, 220, 1);
+  background-color: #8A6EAF;
   border-radius: 0px 0px 20px 20px;
   position: relative;
   left: 10px;
   top: 40px;
-  box-shadow: 40px 0px 0px 0px rgba(240, 220, 220, 1);
+  box-shadow: 40px 0px 0px 0px #8A6EAF;
 }
 
 .head {
@@ -17,7 +17,7 @@
   height: 80px;
   background-color: #111;
   border-radius: 50px;
-  box-shadow: inset -4px 2px 0px 0px rgba(240, 220, 220, 1);
+  box-shadow: inset -4px 2px 0px 0px #8A6EAF;
   animation: headAnim 1.5s infinite alternate;
   animation-timing-function: ease-out;
 }
@@ -29,7 +29,7 @@
   height: 120px;
   background-color: #111;
   border-radius: 50px/25px;
-  box-shadow: inset -5px 2px 0px 0px rgba(240, 220, 220, 1);
+  box-shadow: inset -5px 2px 0px 0px #8A6EAF;
   animation: bodyAnim 1.5s infinite alternate;
   animation-timing-function: ease-out;
 }
@@ -82,7 +82,7 @@
   position: absolute;
   background-color: #111;
   border-radius: 20px;
-  box-shadow: -1px -4px 0px 0px rgba(240, 220, 220, 1);
+  box-shadow: -1px -4px 0px 0px #8A6EAF;
   transform: rotate(45deg);
   top: 75%;
   left: 16%;
@@ -101,7 +101,7 @@
   font-family: "Julius Sans One", sans-serif;
   font-size: 28px;
   font-weight: 400;
-  color: rgb(155, 152, 152);
+  color: #8A6EAF;
   left: 2%;
   top: 5%;
   animation: fontAnim 3.75s infinite;
